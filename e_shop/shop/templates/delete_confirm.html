@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      <div class="card-body text-center">
+        <div class="card">
+          <div class="card-header d-flex flex-row justify-content-between ch-in">
+              <h3 class="text-center">Удаление товара</h3>
+          </div>
+          <div class="card-body cb">
+              <p class="card-text"><i>Вы уверены,что хотите удалить:</i> <span class="task-title">{{ product.product }}</span></p>
+          </div>
+          <form action="{% url 'product-delete' product.id %}" method="post">
+              {% csrf_token %}
+          <div class="card-footer d-flex flex-row justify-content-end">
+              <div><a class="btn btn-success mr-3" href="{% url 'product-detail' product.id %}">Нет, отменить</a></div>
+              <div><input type="submit" class="btn btn-danger" value="Да, удалить!"></div>
+          </div>
+          </form>
+        </div>
+      </div>
+{% endblock %}

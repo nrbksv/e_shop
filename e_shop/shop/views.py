@@ -42,15 +42,24 @@ def product_update_view(request, pk):
             'price': product.price,
             'balance': product.balance
         })
-        return render(request, 'product_add.html', {'form': form, 'product': product})
+        return render(request, 'product_update.html', {'form': form, 'product': product})
     elif request.method == 'POST':
         form = ProductForm(data=request.POST)
         if form.is_valid():
-            category = form.cleaned_data.get('category')
-            product = form.cleaned_data.get('product')
-            description = form.cleaned_data.get('description')
-            price = form.cleaned_data.get('price')
-            balance = form.cleaned_data.get('balance')
+            product.category = form.cleaned_data.get('category')
+            product.product = form.cleaned_data.get('product')
+            product.description = form.cleaned_data.get('description')
+            product.price = form.cleaned_data.get('price')
+            product.balance = form.cleaned_data.get('balance')
             product.save()
             return redirect('product-detail', pk=product.id)
         return render(request, 'product_update.html', {'form': form, 'product': product})
+
+
+def product_delete_view(request, pk):
+    product = get_object_or_404(Product, id=pk)
+    if request.method == 'GET':
+        return render(request, 'delete_confirm.html', {'product': product})
+    elif request.method == 'POST':
+        product.delete()
+        return redirect('product-list')

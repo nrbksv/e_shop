@@ -5,8 +5,10 @@
     {% include 'nav_bar.html' %}
     <div class="card-body">
         <form action="" method="POST">
-            {% include 'form.html' with btn_value='Добавить' %}
-            <a class="btn btn-secondary" href="{% url 'product-detail' product.id %}">Отменить</a>
+            {% include 'form.html' with btn_value='Сохранить изменения' %}
         </form>
+        <div class="text-center mt-2">
+            <a class="btn btn-secondary" href="{% url 'product-detail' product.id %}">Отменить</a>
+        </div>
     </div>
 {% endblock %}
