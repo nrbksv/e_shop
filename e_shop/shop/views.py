@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 from shop.models import Product
-from shop.forms import ProductForm
+from shop.forms import ProductForm, SearchForm
 
 
 def product_list_view(request):
+    form = SearchForm()
     products = Product.objects.all().order_by('category', 'product')
-    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES})
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'form': form})
 
 
 def product_detail_view(request, pk):
@@ -68,3 +69,10 @@ def product_delete_view(request, pk):
 def filter_view(request, category):
     products = Product.objects.filter(category=category).order_by('product')
     return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES})
+
+
+def product_search_view(request):
+    form = SearchForm()
+    search_str = request.GET.get('search')
+    products = Product.objects.filter(product__startswith=search_str).order_by('product')
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'form': form})

@@ -11,6 +11,12 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'product-add' %}">Добавить</a>
         </li>
+          <li>
+              <form class="d-flex" action="{% url 'product-search' %}" method="get">
+                  {{ form.search }}
+                  <input class="btn btn-secondary btn-sm" type="submit" value="Поиск">
+                </form>
+          </li>
       </ul>
     </div>
   </div>

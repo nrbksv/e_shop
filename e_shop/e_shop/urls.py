@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path
 
 from shop.views import (product_list_view, product_detail_view, product_add_view,
-                        product_update_view, product_delete_view, filter_view)
+                        product_update_view, product_delete_view, filter_view,
+                        product_search_view
+                        )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +28,7 @@ urlpatterns = [
     path('product/add', product_add_view, name='product-add'),
     path('product/<int:pk>/update', product_update_view, name='product-update'),
     path('product/<int:pk>/delete', product_delete_view, name='product-delete'),
-    path('product/<str:category>', filter_view, name="category-filter"),
+    path('products/<str:category>', filter_view, name="category-filter"),
+    path('products/', product_search_view, name='product-search'),
 
 ]
