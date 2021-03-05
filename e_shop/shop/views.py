@@ -8,5 +8,7 @@ def product_list_view(request):
     return render(request, 'products_list.html', {'products': products})
 
 
-
+def product_detail_view(request, pk):
+    product = get_object_or_404(Product, id=pk)
+    return render(request, 'product_detail.html', {'product': product})
 

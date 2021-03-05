@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'nav_bar.html' %}
+    <div class="card">
+      <div class="card-body">
+        <table class="table">
+            <tr>
+                <td>Наименование:</td>
+                <td>{{ product.product }}</td>
+            </tr>
+            <tr>
+                <td>Категория:</td>
+                <td>{{ product.category }}</td>
+            </tr>
+            <tr>
+                <td>Описание: </td>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <td>Цена:</td>
+                <td>{{ product.price }}</td>
+            </tr>
+            <tr>
+                <td>В наличии:</td>
+                <td>{{ product.balance }}</td>
+            </tr>
+        </table>
+      </div>
+    </div>
+{% endblock %}
