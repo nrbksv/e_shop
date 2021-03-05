@@ -6,7 +6,7 @@ from shop.forms import ProductForm
 
 def product_list_view(request):
     products = Product.objects.all().order_by('category', 'product')
-    return render(request, 'products_list.html', {'products': products})
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES})
 
 
 def product_detail_view(request, pk):
@@ -63,3 +63,8 @@ def product_delete_view(request, pk):
     elif request.method == 'POST':
         product.delete()
         return redirect('product-list')
+
+
+def filter_view(request, category):
+    products = Product.objects.filter(category=category).order_by('product')
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES})

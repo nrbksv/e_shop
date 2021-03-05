@@ -8,3 +8,20 @@
     box-shadow: red 0 0 3px;
     display: inline-block;
 }
+.product-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.product-link:hover {
+    color: #000000;
+}
+
+.c-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.c-link:hover {
+    color: #000000;
+}

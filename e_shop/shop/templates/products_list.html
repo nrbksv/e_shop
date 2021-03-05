@@ -5,9 +5,23 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Категория</th>
-          <th scope="col">Наименование</th>
-          <th scope="col">Цена</th>
+          <th scope="col">
+          <ul class="nav-bar nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle c-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Категория
+              </a>
+              <ul class="px-2 dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="c-link" href="{% url 'product-list' %}"><li class="py-1">Все</li></a>
+                  {% for i in categories %}
+                <a class="c-link" href="{% url 'category-filter' i.0 %}"><li class="py-1">{{ i.1 }}</li></a>
+                  {% endfor %}
+              </ul>
+            </li>
+          </ul>
+          </th>
+          <th class="align-middle" scope="col">Наименование</th>
+          <th class="align-middle" scope="col">Цена</th>
         </tr>
       </thead>
       <tbody>
@@ -15,7 +29,7 @@
           {% if product.balance > 1 %}
             <tr>
               <td>{{ product.get_category_display }}</td>
-              <td><a href="{% url 'product-detail' product.id %}">{{ product.product }}</a></td>
+              <td><a class="product-link" href="{% url 'product-detail' product.id %}">{{ product.product }}</a></td>
               <td>{{ product.price }}</td>
             </tr>
           {% endif %}
