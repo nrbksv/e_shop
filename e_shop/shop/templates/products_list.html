@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'nav_bar.html' %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Категория</th>
+          <th scope="col">Наименование</th>
+          <th scope="col">Цена</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for product in products %}
+          {% if product.balance > 1 %}
+            <tr>
+              <td>{{ product.get_category_display }}</td>
+              <td><a href="{% url 'product-detail' product.id %}">{{ product.product }}</a></td>
+              <td>{{ product.price }}</td>
+            </tr>
+          {% endif %}
+      {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
