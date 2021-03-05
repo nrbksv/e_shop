@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'nav_bar.html' %}
+    <div class="card-body">
+        <form action="" method="POST">
+            {% include 'form.html' with btn_value='Добавить' %}
+            <a class="btn btn-secondary" href="{% url 'product-detail' product.id %}">Отменить</a>
+        </form>
+    </div>
+{% endblock %}
