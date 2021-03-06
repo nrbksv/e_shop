@@ -5,14 +5,15 @@ from shop.forms import ProductForm, SearchForm
 
 
 def product_list_view(request):
-    form = SearchForm()
+    search_form = SearchForm()
     products = Product.objects.all().order_by('category', 'product')
-    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'form': form})
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'search_form': search_form})
 
 
 def product_detail_view(request, pk):
+    search_form = SearchForm()
     product = get_object_or_404(Product, id=pk)
-    return render(request, 'product_detail.html', {'product': product})
+    return render(request, 'product_detail.html', {'product': product, 'search_form': search_form})
 
 
 def product_add_view(request):
@@ -67,12 +68,13 @@ def product_delete_view(request, pk):
 
 
 def filter_view(request, category):
+    search_form = SearchForm()
     products = Product.objects.filter(category=category).order_by('product')
-    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES})
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'search_form': search_form})
 
 
 def product_search_view(request):
-    form = SearchForm()
+    search_form = SearchForm()
     search_str = request.GET.get('search')
-    products = Product.objects.filter(product__startswith=search_str).order_by('product')
-    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'form': form})
+    products = Product.objects.filter(product__contains=search_str).order_by('product')
+    return render(request, 'products_list.html', {'products': products, 'categories': Product.CATEGORY_CHOICES, 'search_form': search_form})

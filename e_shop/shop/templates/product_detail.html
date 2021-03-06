@@ -27,7 +27,14 @@
             </tr>
         </table>
       </div>
-        <a class="btn btn-secondary" href="{% url 'product-update' product.id %}">Изменить</a>
-        <a class="btn btn-danger" href="{% url 'product-delete' product.id %}">Удалить</a>
+        <div class="card-footer d-flex flex-row justify-content-end">
+            <div>
+                <a class="btn btn-secondary mr-3" href="{% url 'product-update' product.id %}">Изменить</a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal">Удалить</button>
+            </div>
+        </div>
     </div>
+    {% include 'delete_confirm.html' %}
 {% endblock %}

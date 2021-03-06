@@ -9,7 +9,7 @@
     display: inline-block;
 }
 .product-link {
-    color: #000000;
+    color: #464545;
     text-decoration: none;
 }
 
@@ -24,4 +24,26 @@
 
 .c-link:hover {
     color: #000000;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.my-nav {
+    background-color: #aaaaaa;
+}
+
+.m-link {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.m-link:hover {
+    color: #ffffff;
+}
+
+.t-link {
+    color: #464545;
 }

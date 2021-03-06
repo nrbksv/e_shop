@@ -5,7 +5,15 @@
     {% include 'nav_bar.html' %}
     <div class="card-body">
         <form action="{% url 'product-add' %}" method="POST">
-            {% include 'form.html' with btn_value='Добавить' %}
+            {% include 'form.html' %}
+        <div class="card-footer d-flex flex-row justify-content-end">
+            <div>
+                <div class="text-center"><input class="btn btn-success mr-3" type="submit" value="Добавить"/></div>
+            </div>
+            <div>
+                <a class="btn btn-secondary" href="{% url 'product-list' %}">Отменить</a>
+            </div>
+        </div>
         </form>
     </div>
 {% endblock %}

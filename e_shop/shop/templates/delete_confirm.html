@@ -1,21 +1,23 @@
-{% extends 'base.html' %}
-
-{% block content %}
-      <div class="card-body text-center">
-        <div class="card">
-          <div class="card-header d-flex flex-row justify-content-between ch-in">
-              <h3 class="text-center">Удаление товара</h3>
+ <div class="modal" id=modal tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Удаление товара</h5>
+            <button type="button"  data-bs-dismiss="modal" aria-label="Close">X</button>
           </div>
-          <div class="card-body cb">
-              <p class="card-text"><i>Вы уверены,что хотите удалить:</i> <span class="task-title">{{ product.product }}</span></p>
+          <div class="modal-body cb">
+            <p><i>Вы уверены,что хотите удалить:</i></p>
+              <p>{{ product.product }}</p>
           </div>
+          <div class="modal-footer">
           <form action="{% url 'product-delete' product.id %}" method="post">
               {% csrf_token %}
-          <div class="card-footer d-flex flex-row justify-content-end">
-              <div><a class="btn btn-success mr-3" href="{% url 'product-detail' product.id %}">Нет, отменить</a></div>
-              <div><input type="submit" class="btn btn-danger" value="Да, удалить!"></div>
-          </div>
+              <div class="d-flex flex-row justify-content-end">
+                  <div><a class="btn btn-success mr-3" href="{% url 'product-detail' product.id %}">Нет, отменить</a></div>
+                  <div><input type="submit" class="btn btn-danger" value="Да, удалить!"></div>
+              </div>
           </form>
+          </div>
         </div>
       </div>
-{% endblock %}
+    </div>
