@@ -12,7 +12,7 @@
           <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'product-add' %}">Добавить</a>
         </li>
           </ul>
-          <form class="d-flex ml-5" action="{% url 'product-search' %}" method="get">
+          <form class="d-flex ml-5" action="#" method="get">
               {% if search_form %}
               {{ search_form.search }}
               <input class="btn btn-secondary btn-sm" type="submit" value="Поиск">
