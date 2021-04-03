@@ -11,7 +11,7 @@
             </tr>
             <tr>
                 <td>Наименование:</td>
-                <td>{{ product.product }}</td>
+                <td>{{ product.product | wordwrap:8 }}</td>
             </tr>
             <tr>
                 <td>Описание: </td>
@@ -36,5 +36,5 @@
             </div>
         </div>
     </div>
-    {% include 'delete_confirm.html' %}
+    {% include 'products/delete.html' %}
 {% endblock %}

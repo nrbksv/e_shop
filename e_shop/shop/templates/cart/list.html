@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% include 'partial/nav_bar.html' %}
+    <table class="table table-striped border-0">
+      <thead>
+        <tr class="border-0">
+          <th class="ml-2" scope="col">Наименование</th>
+          <th class="align-middle t-link" scope="col">Цена</th>
+          <th class="align-middle t-link" scope="col">Количество</th>
+          <th class="align-middle t-link" scope="col">Сумма</th>
+        </tr>
+      </thead>
+      <tbody class="border-0">
+          {% for product in products %}
+            <tr>
+              <td class="ml-2">{{ product.product.product | truncatechars_html:50  }}</td>
+              <td>{{ product.product.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{% widthratio product.product.price 1 product.quantity %}</td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'card-product-delete' product.product.id %}">Удалить</a></td>
+            </tr>
+          {% empty %}
+          <tr><td>Нет товаров</td></tr>
+          {% endfor %}
+            <tr><td><b>Итого:</b></td><td></td><td></td><td><b>{{ sum }}</b></td><td></td></tr>
+      </tbody>
+    </table>
+    {% include 'partial/paginate.html' %}
+{% endblock %}

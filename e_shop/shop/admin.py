@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from shop.models import Product, Category
+from shop.models import Product, Category, ProductCart
 
 
 class ShopAdmin(admin.ModelAdmin):
@@ -22,3 +22,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category, CategoryAdmin)
+
+
+class CartAdmin(admin.ModelAdmin):
+    list_display = ['id', 'product', 'quantity']
+    fields = ['id', 'product', 'quantity']
+
+
+admin.site.register(ProductCart, CartAdmin)

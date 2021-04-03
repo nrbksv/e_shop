@@ -30,6 +30,7 @@
               <td class="pl-4"><a class="product-link" href="{% url 'product-list' %}?product/category={{ product.category.id }}">{{ product.category }}</a></td>
               <td><a class="product-link" href="{% url 'product-detail' product.id %}">{{ product.product | truncatechars_html:40  }}</a></td>
               <td>{{ product.price }}</td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'add-to-cart' product.id %}"><i class="fas fa-cart-plus">  в корзину</i></a></td>
             </tr>
           {% empty %}
           <tr><td>Нет товаров</td></tr>
