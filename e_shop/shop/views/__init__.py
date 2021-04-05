@@ -5,4 +5,4 @@ from shop.views.products import (
         ProductUpdateView,
         ProductDeleteView,
     )
-from shop.views.cart import add_to_cart, CartListView, delete_from_cart
+from shop.views.cart import AddToCart, CartListView, DeleteFromCart, OrderView
