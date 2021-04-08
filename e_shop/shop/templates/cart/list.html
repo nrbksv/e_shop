@@ -28,10 +28,14 @@
       </tbody>
     </table>
     <div class="container">
+        <hr>
         <form action="{% url 'order' %}" method="post">
             {% include 'partial/form.html' %}
-            <input class="btn btn-warning btn-sm text-dark" type="submit" value="Оформить заказ">
+            <div class="text-right">
+            <input class="btn btn-success text-white border-warning" type="submit" value="Оформить заказ">
+            </div>
         </form>
+        <hr>
     </div>
     {% include 'partial/paginate.html' %}
 {% endblock %}

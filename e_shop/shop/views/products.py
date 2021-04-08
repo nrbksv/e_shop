@@ -47,6 +47,14 @@ class ProductDetailView(DetailView):
     template_name = 'products/detail.html'
     model = Product
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        qty = 0
+        for items in ProductCart.objects.all():
+            qty += items.quantity
+        context['qty'] = qty
+        return context
+
 
 class ProductCreateView(CreateView):
     template_name = 'products/add.html'

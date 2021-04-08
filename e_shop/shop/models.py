@@ -26,7 +26,7 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
 
     def __str__(self):
-        return f'{self.product}{self.category}{self.description} {self.price} {self.balance}'
+        return f'{self.product}'
 
 
 class Category(models.Model):
@@ -73,7 +73,7 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return f'{self.product}{self.user_name}{self.user_phone}{self.user_address}'
+        return f'{self.user_name}  {self.user_phone}  {self.user_address}'
 
 
 class OrderProduct(models.Model):

@@ -26,6 +26,9 @@
                 <td>{{ product.balance }}</td>
             </tr>
         </table>
+          <div class="text-right">
+                <a class="btn btn-warning btn-sm text-dark" href="{% url 'add-to-cart' product.id %}?next={{ request.get_full_path }}"><i class="fas fa-cart-plus">  в корзину</i></a>
+          </div>
       </div>
         <div class="card-footer d-flex flex-row justify-content-end">
             <div>

@@ -36,6 +36,8 @@ class DeleteFromCart(View):
                 cart_product.save()
             else:
                 cart_product.delete()
+        if ProductCart.objects.all().count() == 0:
+            return redirect('product-list')
         return redirect('cart-products-list')
 
 
@@ -57,6 +59,10 @@ class CartListView(ListView):
         context = super().get_context_data(**kwargs)
         context['sum'] = self.get_sum()
         context['form'] = self.form_class
+        qty = 0
+        for items in ProductCart.objects.all():
+            qty += items.quantity
+        context['qty'] = qty
         return context
 
 
@@ -72,6 +78,9 @@ class OrderView(View):
                 )
         for product in ProductCart.objects.all():
             OrderProduct.objects.create(products=product.product, quantity=product.quantity, order=order)
+            prod = Product.objects.get(product=product.product)
+            prod.balance -= product.quantity
+            prod.save()
             ProductCart.objects.all().delete()
         return redirect('product-list')
 
