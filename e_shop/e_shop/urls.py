@@ -14,32 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.views.generic import RedirectView
 
-from accounts.views import UserRegisterView
-from shop.views import (
-        ProductListView,
-        ProductDetailView,
-        ProductCreateView,
-        ProductUpdateView,
-        ProductDeleteView,
-        AddToCart,
-        CartListView,
-        DeleteFromCart,
-        OrderView
-    )
-
+HOME_PAGE_URL = 'products/'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ProductListView.as_view(), name='product-list'),
-    path('product/<int:pk>', ProductDetailView.as_view(), name='product-detail'),
-    path('product/add', ProductCreateView.as_view(), name='product-add'),
-    path('product/<int:pk>/update', ProductUpdateView.as_view(), name='product-update'),
-    path('product/<int:pk>/delete', ProductDeleteView.as_view(), name='product-delete'),
-    path('product/<int:pk>/add/cart', AddToCart.as_view(), name='add-to-cart'),
-    path('cart/products', CartListView.as_view(), name='cart-products-list'),
-    path('cart/product/<int:pk>/delete', DeleteFromCart.as_view(), name='card-product-delete'),
-    path('cart/order', OrderView.as_view(), name='order'),
-    path('register/', UserRegisterView.as_view(), name='user-register')
+    path('products/', include('shop.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('', RedirectView.as_view(url=HOME_PAGE_URL))
 ]

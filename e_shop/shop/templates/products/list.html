@@ -12,9 +12,9 @@
                     Категория
                   </a>
                   <ul class="px-2 dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="c-link" href="{% url 'product-list' %}"><li class="py-1">Все</li></a>
+                    <a class="c-link" href="{% url 'shop:product-list' %}"><li class="py-1">Все</li></a>
                       {% for category in categories %}
-                    <a class="c-link t-link" href="{% url 'product-list'  %}?product/category={{ category.id }}"><li class="py-1">{{ category.category }}</li></a>
+                    <a class="c-link t-link" href="{% url 'shop:product-list'  %}?product/category={{ category.id }}"><li class="py-1">{{ category.category }}</li></a>
                       {% endfor %}
                   </ul>
                 </li>
@@ -27,10 +27,10 @@
       <tbody class="border-0">
           {% for product in products %}
             <tr>
-              <td class="pl-4"><a class="product-link" href="{% url 'product-list' %}?product/category={{ product.category.id }}">{{ product.category }}</a></td>
-              <td><a class="product-link" href="{% url 'product-detail' product.id %}">{{ product.product | truncatechars_html:40  }}</a></td>
+              <td class="pl-4"><a class="product-link" href="{% url 'shop:product-list' %}?product/category={{ product.category.id }}">{{ product.category }}</a></td>
+              <td><a class="product-link" href="{% url 'shop:product-detail' product.id %}">{{ product.product | truncatechars_html:40  }}</a></td>
               <td>{{ product.price }}</td>
-                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'add-to-cart' product.id %}"><i class="fas fa-cart-plus">  в корзину</i></a></td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:add-to-cart' product.id %}"><i class="fas fa-cart-plus">  в корзину</i></a></td>
             </tr>
           {% empty %}
           <tr><td>Нет товаров</td></tr>

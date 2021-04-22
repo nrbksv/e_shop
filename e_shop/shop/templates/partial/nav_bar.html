@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active m-link" aria-current="page" href="{% url 'product-list' %}">Все товары</a>
+          <a class="nav-link active m-link" aria-current="page" href="{% url 'shop:product-list' %}">Все товары</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'product-add' %}">Добавить</a>
+          <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'shop:product-add' %}">Добавить</a>
         </li>
       <li>
           <form class="d-flex ml-5" action="" method="get">
@@ -20,10 +20,15 @@
               {% endif %}
           </form>
       </li>
-      <li><a class="text-dark" href="{% url 'user-register' %}">Регистрация</a></li>
+      <li><a class="text-dark btn btn-sm ml-2" href="{% url 'accounts:user-register' %}">Регистрация</a></li>
+      {% if user.is_authenticated %}
+      <li><a class="text-dark btn btn-sm ml-2" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>
+          {% else %}
+          <li><a class="text-dark btn btn-sm ml-2" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>
+      {% endif %}
       </ul>
     {% if qty %}
-        <a class="btn btn-warning ml-auto mr-2" href="{% url 'cart-products-list' %}">
+        <a class="btn btn-warning ml-auto mr-2" href="{% url 'shop:cart-products-list' %}">
             <i class="fas fa-shopping-cart">  Товаров в корзине: {{ qty }}</i>
         </a>
     {%  endif %}

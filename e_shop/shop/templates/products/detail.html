@@ -27,12 +27,12 @@
             </tr>
         </table>
           <div class="text-right">
-                <a class="btn btn-warning btn-sm text-dark" href="{% url 'add-to-cart' product.id %}?next={{ request.get_full_path }}"><i class="fas fa-cart-plus">  в корзину</i></a>
+                <a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:add-to-cart' product.id %}?next={{ request.get_full_path }}"><i class="fas fa-cart-plus">  в корзину</i></a>
           </div>
       </div>
         <div class="card-footer d-flex flex-row justify-content-end">
             <div>
-                <a class="btn btn-secondary mr-3" href="{% url 'product-update' product.id %}">Изменить</a>
+                <a class="btn btn-secondary mr-3" href="{% url 'shop:product-update' product.id %}">Изменить</a>
             </div>
             <div>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal">Удалить</button>

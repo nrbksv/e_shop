@@ -21,7 +21,7 @@ class AddToCart(View):
             cart.product = product
             cart.quantity = 1
             cart.save()
-        return redirect('product-list')
+        return redirect('shop:product-list')
 
 
 class DeleteFromCart(View):
@@ -37,8 +37,8 @@ class DeleteFromCart(View):
             else:
                 cart_product.delete()
         if ProductCart.objects.all().count() == 0:
-            return redirect('product-list')
-        return redirect('cart-products-list')
+            return redirect('shop:product-list')
+        return redirect('shop:cart-products-list')
 
 
 class CartListView(ListView):
@@ -82,7 +82,7 @@ class OrderView(View):
             prod.balance -= product.quantity
             prod.save()
             ProductCart.objects.all().delete()
-        return redirect('product-list')
+        return redirect('shop:product-list')
 
 
 

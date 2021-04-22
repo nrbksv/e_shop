@@ -10,10 +10,10 @@
               <p>{{ product.product }}</p>
           </div>
           <div class="modal-footer">
-          <form action="{% url 'product-delete' product.id %}" method="post">
+          <form action="{% url 'shop:product-delete' product.id %}" method="post">
               {% csrf_token %}
               <div class="d-flex flex-row justify-content-end">
-                  <div><a class="btn btn-success mr-3" href="{% url 'product-detail' product.id %}">Нет, отменить</a></div>
+                  <div><a class="btn btn-success mr-3" href="{% url 'shop:product-detail' product.id %}">Нет, отменить</a></div>
                   <div><input type="submit" class="btn btn-danger" value="Да, удалить!"></div>
               </div>
           </form>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="card mx-auto" style="width: 65%;">
+        <div class="card-header text-center bg-secondary text-white">
+            <b><i>Регистрация</i></b>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'accounts:user-register' %}" method="POST">
+                {% include 'partial/form.html' %}
+            <div class="card-footer border-0 d-flex flex-row justify-content-end">
+                <div>
+                    <div class="text-center"><input class="btn btn-success mr-3" type="submit" value="Сохранить"/></div>
+                </div>
+                <div>
+                    <a class="btn btn-secondary border-dark" href="{% url 'shop:product-list' %}">Отменить</a>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

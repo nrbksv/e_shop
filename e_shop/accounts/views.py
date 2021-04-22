@@ -6,9 +6,9 @@ from accounts.forms import RegisterForm
 
 
 class UserRegisterView(CreateView):
-    template_name = 'register.html'
+    template_name = 'registration/register.html'
     form_class = RegisterForm
     model = get_user_model()
 
     def get_success_url(self):
-        return reverse('product-list')
+        return reverse('shop:product-list')
