@@ -9,9 +9,11 @@
         <li class="nav-item">
           <a class="nav-link active m-link" aria-current="page" href="{% url 'shop:product-list' %}">Все товары</a>
         </li>
+      {% if perms.shop.add_product %}
         <li class="nav-item">
           <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'shop:product-add' %}">Добавить</a>
         </li>
+      {% endif %}
       <li>
           <form class="d-flex ml-5" action="" method="get">
               {% if search_form %}

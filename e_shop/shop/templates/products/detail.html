@@ -32,10 +32,14 @@
       </div>
         <div class="card-footer d-flex flex-row justify-content-end">
             <div>
+                {% if perms.shop.change_product %}
                 <a class="btn btn-secondary mr-3" href="{% url 'shop:product-update' product.id %}">Изменить</a>
+                {% endif %}
             </div>
             <div>
+                {% if perms.shop.delete_product %}
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal">Удалить</button>
+                {% endif %}
             </div>
         </div>
     </div>

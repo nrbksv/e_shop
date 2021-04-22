@@ -19,7 +19,7 @@
               <td>{{ product.product.price }}</td>
                 <td>{{ product.quantity }}</td>
                 <td>{% widthratio product.product.price 1 product.quantity %}</td>
-                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'card-product-delete' product.product.id %}"><i class="fas fa-minus-square">  Удалить</i></a></td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:cart-product-delete' product.product.id %}"><i class="fas fa-minus-square">  Удалить</i></a></td>
             </tr>
           {% empty %}
           <tr><td>Нет товаров</td></tr>
@@ -29,7 +29,7 @@
     </table>
     <div class="container">
         <hr>
-        <form action="{% url 'order' %}" method="post">
+        <form action="{% url 'shop:order' %}" method="post">
             {% include 'partial/form.html' %}
             <div class="text-right">
             <input class="btn btn-success text-white border-warning" type="submit" value="Оформить заказ">

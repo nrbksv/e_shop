@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -56,25 +57,28 @@ class ProductDetailView(DetailView):
         return context
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'products/add.html'
     model = Product
     form_class = ProductForm
+    permission_required = 'add_product'
 
     def get_success_url(self):
         return reverse('product-detail', kwargs={'pk': self.object.pk})
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'products/update.html'
     model = Product
     form_class = ProductForm
+    permission_required = 'change_product'
 
     def get_success_url(self):
         return reverse('product-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'products/delete.html'
     model = Product
     success_url = reverse_lazy('product-list')
+    permission_required = 'delete_product'
