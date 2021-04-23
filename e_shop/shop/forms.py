@@ -1,7 +1,7 @@
 from django.forms import ModelForm, TextInput, Textarea, Select, NumberInput
 from django import forms
 
-from shop.models import Product, Order, ProductCart
+from shop.models import Product, Order
 
 
 class ProductForm(ModelForm):

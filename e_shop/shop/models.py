@@ -41,19 +41,6 @@ class Category(models.Model):
         return f'{self.category}'
 
 
-class ProductCart(models.Model):
-    product = models.ForeignKey('shop.Product', on_delete=models.DO_NOTHING, related_name='cart', verbose_name='Товар')
-    quantity = models.PositiveIntegerField(verbose_name='Количество')
-
-    class Meta:
-        db_table = 'carts'
-        verbose_name = 'Корзина'
-        verbose_name_plural = 'Корзины'
-
-    def __str__(self):
-        return f'{self.product}{self.quantity}'
-
-
 class Order(models.Model):
     product = models.ManyToManyField(
         'shop.Product',

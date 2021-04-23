@@ -4,7 +4,7 @@ from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse
 
-from shop.models import Product, Category, ProductCart
+from shop.models import Product, Category
 from shop.forms import ProductForm, SearchForm
 
 
@@ -24,10 +24,11 @@ class ProductListView(ListView):
         context['categories'] = Category.objects.all()
         if self.search_item:
             context['query'] = urlencode({'search': self.search_item})
-        qty = 0
-        for items in ProductCart.objects.all():
-            qty += items.quantity
-        context['qty'] = qty
+        if self.request.session.get('cart'):
+            qty = 0
+            for key, value in self.request.session.get('cart').items():
+                qty += value
+            context['qty'] = qty
         return context
 
     def get(self, request, **kwargs):
@@ -50,10 +51,6 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        qty = 0
-        for items in ProductCart.objects.all():
-            qty += items.quantity
-        context['qty'] = qty
         return context
 
 

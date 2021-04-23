@@ -13,13 +13,13 @@
         </tr>
       </thead>
       <tbody class="border-0">
-          {% for product in products %}
+          {% for key, value in products.items %}
             <tr>
-              <td >{{ product.product.product | truncatechars_html:50  }}</td>
-              <td>{{ product.product.price }}</td>
-                <td>{{ product.quantity }}</td>
-                <td>{% widthratio product.product.price 1 product.quantity %}</td>
-                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:cart-product-delete' product.product.id %}"><i class="fas fa-minus-square">  Удалить</i></a></td>
+              <td >{{ key.product | truncatechars_html:50  }}</td>
+              <td>{{ key.price }}</td>
+                <td>{{ value.0 }}</td>
+                <td>{{ value.1 }}</td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:cart-product-delete' key.id %}"><i class="fas fa-minus-square">  Удалить</i></a></td>
             </tr>
           {% empty %}
           <tr><td>Нет товаров</td></tr>
