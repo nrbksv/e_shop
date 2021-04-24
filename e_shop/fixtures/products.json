@@ -5,7 +5,7 @@
   "fields": {
     "product": "Samsung Galaxy S 20",
     "description": "Galaxy S20 Ultra превзошел возможности 12 МП камеры, чтобы подарить вам миллионы новых пикселей на каждом снимке. Впервые вы сможете приблизить каждую сцену настолько, чтобы увидеть ранее незаметные глазу детали.\r\nВсе начинается с 10Х гибридного оптического зума с революционным объективом и сенсором высокого разрешения. Умножьте это на возможности зума со сверхвысоким разрешением и камеру с искусственным интеллектом. Теперь от вас не ускользнет ни одна деталь.",
-    "balance": 8,
+    "balance": 18,
     "category": 2,
     "price": "80000.00"
   }
@@ -16,7 +16,7 @@
   "fields": {
     "product": "IPad Pro 11 128GB Cellular",
     "description": "iPad Pro 2020\r\niPad Pro обладает компактными размерами, производительностью ноутбука и автономностью современных смартфонов. Две основные камеры и селфи-камера позволяют фотографировать, снимать видео 4К и общаться без ограничений. Взаимодействовать с устройством можно с помощью касаний, подсоединяемой клавиатуры, трекпада или Apple Pencil.",
-    "balance": 5,
+    "balance": 15,
     "category": 3,
     "price": "110000.00"
   }
@@ -38,7 +38,7 @@
   "fields": {
     "product": "Acer Nitro 5",
     "description": "Nitro 5\r\n\r\nNitro 5 это мощный игровой ноутбук. Крепкий корпус, экран с быстрой частотой обновления и высокопроизводительные компоненты, оснащенные эффективной системой охлаждения обеспечат новые впечатления от игр.",
-    "balance": 3,
+    "balance": 13,
     "category": 4,
     "price": "51000.00"
   }
@@ -49,7 +49,7 @@
   "fields": {
     "product": "Шлем виртуальной реальности PlayStation PS VR Mega2",
     "description": "Основные характеристики\r\nТип \tОчки виртуальной реальности\r\nРазмер панели \t5,7″ - 14,48 см\r\nСовместимые платформы \tPS 4\r\nДополнительные характеристики\r\nТип питания \tОт сети\r\nЧастота смены кадра \t120 Гц\r\nОсобенности \t5 игр в комплекте\r\nКомплектация \tШлем VR, Камера, Процессорный модуль, Кабель подключения к шлему VR, Кабель HDMI, USB, Наушники, Кабель переменного тока, Адаптер переменного тока, VR Worlds, TES V: Skyrim, Astro Bot Rescue Mission, Resident Evil 7, Everybody’s Golf VR",
-    "balance": 0,
+    "balance": 10,
     "category": 1,
     "price": "25000.00"
   }
@@ -71,7 +71,7 @@
   "fields": {
     "product": "Робот пылесос Samsung VR05R5050WK/EV",
     "description": "Основные характеристики\r\nТип пылесоса \tРобот\r\nТип уборки \tСухая и влажная\r\nПотребляемая мощность \t55 Вт\r\nМакс. мощность всасывания \t24 Вт\r\nТип пылесборника \tКонтейнер\r\nОбъем пылесборника \t0,2 л\r\nРегулировка мощности \tНа корпусе\r\nСкорость \t0.32 м/с\r\nВремя работы \t150 мин\r\nВремя зарядки \t240 мин\r\nТип аккумулятора \tлит-ион\r\nОсобенности \tИнтеллектуальная сенсорная система\r\nУровень шума \t77 дБ\r\nСтрана производителя \tКитай",
-    "balance": 2,
+    "balance": 12,
     "category": 5,
     "price": "20000.00"
   }
@@ -82,7 +82,7 @@
   "fields": {
     "product": "Зеркальный фотоаппарат Nikon D850 Body",
     "description": "Сегмент \tДля продвинутых пользователей\r\nТип видоискателя \tОптический\r\nФорматы изображения \tСъемка в RAW и JPEG\r\nЗапись видео \t3840x2160 (4K UHD)\r\nМакс. частота кадров видеоролика \t60 кадров/с\r\nМатрица\r\nТип матрицы \tCMOS\r\nРазмер матрицы \t35.9 x 24 мм\r\nРазрешение матрицы \tот 25 до 50 Mpx\r\nСистема очистки матрицы от пыли \tДа\r\nКол-во мегапикселей \t45.7 Mpx\r\nМаксимальное разрешение фото \t8256 х 5504\r\nОптика\r\nКоличество объективов \t0\r\nМодель объектива \tНет\r\nОптика в комплекте \tБез объектива (Body)\r\nПоддержка объективов \tNikon F\r\nДиапазон выдержки \t30 - 1/8000 с\r\nСветочувствительность \t64 - 25600 ISO\r\nДисплей\r\nДиагональ дисплея \t3,1″ - 78,4 мм\r\nСенсорный дисплей \tДа\r\nПоворотный дисплей \tДа\r\nФункции и особенности\r\nАвтоматическая фокусировка \tДа\r\nРучная фокусировка \tДа\r\nАвтоматическая экспозиция \tДа\r\nРучная экспозиция \tДа\r\nВстроенная стабилизация изображения \tНет\r\nАвтоматический баланс белого \tДа\r\nОсобенности \tФотосъемка в формате FX",
-    "balance": 1,
+    "balance": 11,
     "category": 1,
     "price": "200000.00"
   }
@@ -93,7 +93,7 @@
   "fields": {
     "product": "Apple iPhone 12 mini 64GB",
     "description": "Производитель \tApple\r\nОперационная система \tiOS 14\r\nМатериал корпуса \tАлюминий, стекло\r\nСтрана производителя \tКитай\r\nОсобенности \tДатчик ориентации экрана. Датчик ускорения (G-sensor). Сенсор распознавания лица. Поддержка беспроводной и быстрой зарядки. Поддержка MagSafe. Водозащита, Влагозащита, Пылезащищенный. Гироскоп, Акселерометр, Датчик приближения, Датчик освещения, Барометр\r\nКомплектация \tСмартфон. Кабель USB-C - Lightning. Инструкция. Гарантийный талон.\r\nФункции и особенности \tВспышка экрана, Двойная камера, Поддержка 4G, Поддержка 5G, Пыле/-влагозащита, Распознавание лица, NFC\r\nДисплей\r\nДиагональ дисплея \t5,4″ - 13,7 см\r\nТип матрицы \tOLED\r\nРазрешение экрана \t2340x1080\r\nПамять и процессор\r\nОбъем встроенной памяти \t64 GB\r\nПроцессор \tA14 Bionic\r\nЧастота процессора \t60 Гц\r\nКоличество ядер процессора \t6\r\nФотокамера\r\nОсновная камера \t12 Mpx + 12 Mpx\r\nФронтальная камера \t12 Mpx",
-    "balance": 5,
+    "balance": 25,
     "category": 2,
     "price": "70000.00"
   }
@@ -115,7 +115,7 @@
   "fields": {
     "product": "Ноутбук Apple MacBook Air 13″ (2020) i3 1,1/8Gb/256GB SSD Space Gray",
     "description": "Диагональ \t13,3″ - 33,78 см\r\nСерия ноутбука \tMacBook Air\r\nКатегория \tУльтрабуки\r\nОперационная система \tMacOS X\r\nСтрана производителя \tКитай\r\nДисплей\r\nРазрешение \t2560x1600\r\nТехнология дисплея \tRetina\r\nПоверхность экрана \tАнтибликовое\r\nПроцессор\r\nМодель процессора \tIntel® Core™ i3-1000NG4\r\nЧастота процессора \t1.10 ГГц\r\nМаксимальная частота ядра \t3.2 ГГц\r\nКоличество ядер \t2\r\nПамять\r\nОбъем оперативной памяти \t8 GB\r\nТип жесткого диска \tSSD\r\nОбъем накопителя \t256 GB\r\nВидеокарта\r\nВидеоадаптер \tIntel Iris Plus Graphics\r\nТип видеокарты \tВстроенная\r\nПроизводитель видеоадаптера \tIntel\r\nОбъем памяти видеоадаптера \t1.5 GB\r\nРазъемы и интерфейсы\r\nИнтерфейсы \tThunderbolt 3 x2\r\nБеспроводная связь \tWIFI, Bluetooth 5.0\r\nОптический привод \tНет",
-    "balance": 0,
+    "balance": 10,
     "category": 4,
     "price": "100000.00"
   }
@@ -214,7 +214,7 @@
   "fields": {
     "product": "Samsung Galaxy Tab S7 + 12.4 128GB WiFi + LTE Black (SM-T975NZKASKZ)",
     "description": "Диагональ, дюйм12.4\r\nТип матрицы дисплеяSuper AMOLED\r\nСтилус в комплектеДа\r\nОперационная системаAndroid 10\r\nОбъем оперативной памяти, ГБ6\r\nОбъём встроенной памяти, ГБ128\r\nПоддержка 4G LTEДа\r\nВремя работы, ч14",
-    "balance": 4,
+    "balance": 14,
     "category": 3,
     "price": "74000.00"
   }
@@ -247,7 +247,7 @@
   "fields": {
     "product": "Apple iPad Air 10.9 2020 64GB WiFi Sky Blue",
     "description": "",
-    "balance": 1,
+    "balance": 11,
     "category": 3,
     "price": "70000.00"
   }
@@ -258,7 +258,7 @@
   "fields": {
     "product": "Вертикальный моющий пылесос Tefal TY-9890WO",
     "description": "Тип пылесосаМоющие пылесосы, Пылесосы вертикальные\r\nТип уборкиСухая, Влажная\r\nПылесборникЦиклонный фильтр\r\nОбъем пылесборника, л0.9\r\nМощность всасывания, аВт130\r\nПотребляемая мощность, Вт25.2\r\nТруба всасыванияЦельная",
-    "balance": 1,
+    "balance": 7,
     "category": 5,
     "price": "44000.00"
   }
@@ -291,7 +291,7 @@
   "fields": {
     "product": "Двухкамерный холодильник LG GA-B459CEWL",
     "description": "Тип холодильникаДвухкамерный\r\nТип управленияЭлектромеханический\r\nВысота, см186",
-    "balance": 2,
+    "balance": 9,
     "category": 5,
     "price": "45000.00"
   }
@@ -302,7 +302,7 @@
   "fields": {
     "product": "Asus TUF Gaming A15 Ryzen 5 4600H / 8ГБ / 512SSD / GTX1650 4ГБ",
     "description": "Диагональ дисплея, дюйм15.6\r\nСерия процессораAMD Ryzen 5\r\nМодель процессора4600H\r\nОбъем оперативной памяти, ГБ8\r\nОбъем SSD накопителя, ГБ512\r\nМодель видеокартыNGF GTX 1650\r\nОперационная системаDOS",
-    "balance": 1,
+    "balance": 9,
     "category": 4,
     "price": "69000.00"
   }
@@ -313,7 +313,7 @@
   "fields": {
     "product": "Lenovo Legion 5P i5 10300H / 16ГБ / 512SSD / GTX1660Ti 6ГБ / 15.6 / DOS / (82AW004FRK)",
     "description": "Диагональ дисплея, дюйм15.6\r\nСерия процессораIntel Core i5\r\nМодель процессора10300H\r\nОбъем оперативной памяти, ГБ16\r\nОбъем SSD накопителя, ГБ512\r\nМодель видеокартыNGF GTX 1660 Ti\r\nОперационная системаDOS",
-    "balance": 1,
+    "balance": 7,
     "category": 4,
     "price": "87000.00"
   }
@@ -324,7 +324,7 @@
   "fields": {
     "product": "qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
     "description": "qqqqqqqqqqqq",
-    "balance": 1,
+    "balance": 0,
     "category": 5,
     "price": "1.00"
   }
@@ -371,7 +371,8 @@
     "user_name": "test",
     "user_phone": "test",
     "user_address": "test",
-    "created_at": "2021-04-05T11:06:37.230Z"
+    "created_at": "2021-04-05T11:06:37.230Z",
+    "_user": null
   }
 },
 {
@@ -381,7 +382,8 @@
     "user_name": "qwe",
     "user_phone": "123",
     "user_address": "qwe",
-    "created_at": "2021-04-05T12:20:23.638Z"
+    "created_at": "2021-04-05T12:20:23.638Z",
+    "_user": null
   }
 },
 {
@@ -391,7 +393,100 @@
     "user_name": "qwe",
     "user_phone": "123",
     "user_address": "qwe",
-    "created_at": "2021-04-05T12:21:02.068Z"
+    "created_at": "2021-04-05T12:21:02.068Z",
+    "_user": null
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 16,
+  "fields": {
+    "user_name": "user",
+    "user_phone": "user",
+    "user_address": "user",
+    "created_at": "2021-04-23T16:45:33.529Z",
+    "_user": null
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 28,
+  "fields": {
+    "user_name": "qwe",
+    "user_phone": "123",
+    "user_address": "qwe",
+    "created_at": "2021-04-24T06:23:29.470Z",
+    "_user": null
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 29,
+  "fields": {
+    "user_name": "user",
+    "user_phone": "user",
+    "user_address": "user",
+    "created_at": "2021-04-24T06:31:10.452Z",
+    "_user": [
+      "user"
+    ]
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 30,
+  "fields": {
+    "user_name": "user_",
+    "user_phone": "1234",
+    "user_address": "user_",
+    "created_at": "2021-04-24T08:09:41.130Z",
+    "_user": [
+      "user"
+    ]
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 31,
+  "fields": {
+    "user_name": "йцукен",
+    "user_phone": "12344",
+    "user_address": "йцукен",
+    "created_at": "2021-04-24T08:55:51.775Z",
+    "_user": null
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 32,
+  "fields": {
+    "user_name": "anon",
+    "user_phone": "00000000000",
+    "user_address": "anon",
+    "created_at": "2021-04-24T10:51:16.456Z",
+    "_user": null
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 33,
+  "fields": {
+    "user_name": "user_2",
+    "user_phone": "1111111111",
+    "user_address": "user_2",
+    "created_at": "2021-04-24T15:30:26.278Z",
+    "_user": null
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 34,
+  "fields": {
+    "user_name": "user_3",
+    "user_phone": "3333333333",
+    "user_address": "user_3",
+    "created_at": "2021-04-24T15:30:50.835Z",
+    "_user": null
   }
 },
 {
@@ -445,6 +540,105 @@
   "fields": {
     "products": 30,
     "order": 3,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 18,
+  "fields": {
+    "products": 14,
+    "order": 16,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 31,
+  "fields": {
+    "products": 14,
+    "order": 28,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 32,
+  "fields": {
+    "products": 14,
+    "order": 29,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 33,
+  "fields": {
+    "products": 5,
+    "order": 30,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 34,
+  "fields": {
+    "products": 8,
+    "order": 30,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 35,
+  "fields": {
+    "products": 31,
+    "order": 30,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 36,
+  "fields": {
+    "products": 32,
+    "order": 30,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 37,
+  "fields": {
+    "products": 14,
+    "order": 31,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 38,
+  "fields": {
+    "products": 29,
+    "order": 32,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 39,
+  "fields": {
+    "products": 5,
+    "order": 33,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.orderproduct",
+  "pk": 40,
+  "fields": {
+    "products": 5,
+    "order": 34,
     "quantity": 1
   }
 }
