@@ -9,7 +9,8 @@ from shop.views import (
         AddToCart,
         CartListView,
         DeleteFromCart,
-        OrderView
+        OrderView,
+        UserOrder,
     )
 
 
@@ -25,4 +26,5 @@ urlpatterns = [
     path('cart/products', CartListView.as_view(), name='cart-products-list'),
     path('cart/product/<int:pk>/delete', DeleteFromCart.as_view(), name='cart-product-delete'),
     path('cart/order', OrderView.as_view(), name='order'),
+    path('user/order', UserOrder.as_view(), name='user-order'),
 ]

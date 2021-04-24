@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'partial/nav_bar.html' %}
+    <h4 class="text-center mt-4">Все заказы пользователя {{ request.user.username }}:</h4>
+    {% for order, prod in orders.items %}
+    <div class="card mx-auto mb-3 mt-3" style="width: 90%;">
+    <div class="card-header">
+        <i>Дата и время заказа: {{ order.created_at }}</i>
+    </div>
+    <table class="table table-striped ">
+      <thead>
+        <tr class="border-0">
+          <th scope="col">Наименование</th>
+          <th class="align-middle t-link" scope="col">Цена</th>
+          <th class="align-middle t-link" scope="col">Количество</th>
+          <th class="align-middle t-link" scope="col">Сумма</th>
+        </tr>
+      </thead>
+      <tbody class="border-0">
+          {% for product, sum in prod.0.items %}
+            <tr>
+              <td >{{ product.products.product | truncatechars_html:55  }}</td>
+              <td>{{ product.products.price }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ sum }}</td>
+            </tr>
+          {% endfor %}
+            <tr><td><b>Итого:</b></td><td></td><td></td><td><b>{{ prod.1 }}</b></td></tr>
+      </tbody>
+    </table>
+    </div>
+        {% empty %}
+        <hr>
+        <h4 class="text-center">Заказов нет</h4>
+        <hr>
+    {% endfor %}
+{% endblock %}

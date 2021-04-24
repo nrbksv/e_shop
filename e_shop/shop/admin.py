@@ -24,8 +24,8 @@ admin.site.register(Category, CategoryAdmin)
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user_name', 'user_phone', 'user_address', 'created_at']
-    fields = ['id', 'user_name', 'user_phone', 'user_address', 'created_at']
+    list_display = ['id', '_user', 'user_name', 'user_phone', 'user_address', 'created_at']
+    fields = ['id', '_user', 'user_name', 'user_phone', 'user_address', 'created_at']
     readonly_fields = ['id', 'created_at']
 
 
@@ -33,7 +33,7 @@ admin.site.register(Order, OrderAdmin)
 
 
 class OrderProductsAdmin(admin.ModelAdmin):
-    list_display = ['id','quantity']
+    list_display = ['id', 'quantity']
     fields = ['id', 'products', 'quantity', 'order']
     readonly_fields = ['id']
 

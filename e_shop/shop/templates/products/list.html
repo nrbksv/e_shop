@@ -22,6 +22,13 @@
           </th>
           <th class="align-middle t-link" scope="col">Наименование</th>
           <th class="align-middle t-link" scope="col">Цена</th>
+            <th class="align-middle t-link" scope="col">
+                {% if qty %}
+                    <a class="btn btn-warning btn-sm" href="{% url 'shop:cart-products-list' %}">
+                        <i class="fas fa-shopping-cart"> : ({{ qty }})</i>
+                    </a>
+                {%  endif %}
+            </th>
         </tr>
       </thead>
       <tbody class="border-0">
@@ -37,5 +44,7 @@
           {% endfor %}
       </tbody>
     </table>
-    {% include 'partial/paginate.html' %}
+    {% if is_paginated %}
+        {% include 'partial/paginate.html' %}
+    {% endif %}
 {% endblock %}

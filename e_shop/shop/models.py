@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.validators import MinValueValidator
 
@@ -53,6 +54,7 @@ class Order(models.Model):
     user_phone = models.CharField(max_length=20, blank=False, null=False, verbose_name='Телефон')
     user_address = models.CharField(max_length=200, blank=False, null=False, verbose_name='Адрес')
     created_at = models.DateTimeField(auto_now_add=True)
+    _user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='orders', default=None, null=True, verbose_name='Пользователь')
 
     class Meta:
         db_table = 'orders'

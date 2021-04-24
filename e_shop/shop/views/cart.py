@@ -1,4 +1,6 @@
 from django.contrib import messages
+from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, View
 from django.shortcuts import redirect, get_object_or_404
 
@@ -9,21 +11,20 @@ from shop.forms import OrderForm
 class AddToCart(View):
     def get(self, request, pk):
         product = get_object_or_404(Product, id=pk)
-
         if not request.session.get('cart'):
             request.session['cart'] = dict()
         _cart = request.session.get('cart')
 
         if _cart.get(str(product.id)) is None:
             _cart[str(product.id)] = 1
-            messages.add_message(request, messages.SUCCESS, f' {product.product}  добавлен в корзину. Количество: 1шт')
+            messages.add_message(request, messages.SUCCESS, f' "{product.product}"  добавлен в корзину. Количество: 1шт')
         else:
             balance = product.balance - (_cart.get(str(product.id)) + 1)
             if balance >= 0:
                 _cart[str(product.id)] += 1
-                messages.add_message(request, messages.SUCCESS, f'{product.product}  добавлен в корзину. Количество: 1шт')
+                messages.add_message(request, messages.SUCCESS, f'"{product.product}"  добавлен в корзину. Количество: {_cart[str(product.id)]}шт')
             else:
-                messages.add_message(request, messages.ERROR, f'Это был последний {product.product}')
+                messages.add_message(request, messages.ERROR, f'Это был последний  "{product.product}"')
 
         request.session['cart'] = _cart
         return redirect('shop:product-list')
@@ -38,7 +39,7 @@ class DeleteFromCart(View):
         if _cart.get(str(product.id)):
             if _cart[str(product.id)] > 1:
                 _cart[str(product.id)] -= 1
-                messages.add_message(request, messages.WARNING, f'{product.product} удален из корзины. Количество: 1шт')
+                messages.add_message(request, messages.WARNING, f'"{product.product}" удален из корзины. Количество: 1шт')
             else:
                 del _cart[str(product.id)]
             request.session['cart'] = _cart
@@ -52,15 +53,12 @@ class CartListView(ListView):
     template_name = 'cart/list.html'
     context_object_name = 'products'
     form_class = OrderForm
-    cart = None
-    products = None
-
-    def get(self, request, *args, **kwargs):
-        self.cart = request.session.get('cart')
-        return super().get(request, *args, **kwargs)
+    cart = {}
+    products = []
 
     def get_queryset(self):
         queryset = {}
+        self.cart = self.request.session.get('cart', {})
         for idx, count in self.cart.items():
             product = get_object_or_404(Product, id=int(idx))
             queryset[product] = [count, count*product.price]
@@ -93,16 +91,39 @@ class OrderView(View):
                 user_phone=order_form.cleaned_data.get('user_phone'),
                 user_address=order_form.cleaned_data.get('user_address')
                 )
+            if request.user in get_user_model().objects.all():
+                order._user = request.user
+            order.save()
 
         for idx, qty in _cart.items():
             product = get_object_or_404(Product, id=int(idx))
             OrderProduct.objects.create(products=product, quantity=qty, order=order)
-            prod = Product.objects.get(product=product)
-            prod.balance -= qty
-            prod.save()
-            _cart.clear()
+            if product.balance - qty >= 0:
+                product.balance -= qty
+            product.save()
+        _cart.clear()
+        request.session['cart'] = _cart
 
         return redirect('shop:product-list')
+
+
+class UserOrder(LoginRequiredMixin, ListView):
+    template_name = 'cart/user_order.html'
+    context_object_name = 'orders'
+
+    def get_queryset(self):
+        queryset = {}
+        orders = Order.objects.filter(_user=self.request.user.id)
+        for order in orders:
+            inter = {}
+            total_order_sum = 0
+            for prod in order.products.all():
+                inter[prod] = prod.products.price * prod.quantity
+            total_order_sum += sum(inter.values())
+            queryset[order] = [inter, total_order_sum]
+        return queryset
+
+
 
 
 

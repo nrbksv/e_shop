@@ -4,7 +4,7 @@ from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse
 
-from shop.models import Product, Category
+from shop.models import Product, Category, Order
 from shop.forms import ProductForm, SearchForm
 
 

@@ -6,34 +6,30 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mb-2 mb-lg-0">
+          <li>
+              <form class="d-flex" action="" method="get">
+                  {% if search_form %}
+                      {{ search_form.search }}
+                      <input class="btn btn-secondary btn-sm" type="submit" value="Поиск">
+                  {% endif %}
+              </form>
+          </li>
         <li class="nav-item">
-          <a class="nav-link active m-link" aria-current="page" href="{% url 'shop:product-list' %}">Все товары</a>
+          <a class="nav-link active m-link ml-5" aria-current="page" href="{% url 'shop:product-list' %}">Все товары</a>
         </li>
       {% if perms.shop.add_product %}
         <li class="nav-item">
           <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'shop:product-add' %}">Добавить</a>
         </li>
       {% endif %}
-      <li>
-          <form class="d-flex ml-5" action="" method="get">
-              {% if search_form %}
-                  {{ search_form.search }}
-                  <input class="btn btn-secondary btn-sm" type="submit" value="Поиск">
-              {% endif %}
-          </form>
-      </li>
-      <li><a class="text-dark btn btn-sm ml-2" href="{% url 'accounts:user-register' %}">Регистрация</a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:user-register' %}">Регистрация</a></li>
       {% if user.is_authenticated %}
-      <li><a class="text-dark btn btn-sm ml-2" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>
-          {% else %}
-          <li><a class="text-dark btn btn-sm ml-2" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'shop:user-order' %}">Мои заказы</a></li>
+      {% else %}
+          <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>
       {% endif %}
       </ul>
-    {% if qty %}
-        <a class="btn btn-warning ml-auto mr-2" href="{% url 'shop:cart-products-list' %}">
-            <i class="fas fa-shopping-cart">  Товаров в корзине: {{ qty }}</i>
-        </a>
-    {%  endif %}
     </div>
   </div>
 </nav>
