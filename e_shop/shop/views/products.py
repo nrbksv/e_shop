@@ -4,7 +4,7 @@ from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import reverse
 
-from shop.models import Product, Category, Order
+from shop.models import Product, Category
 from shop.forms import ProductForm, SearchForm
 
 
@@ -49,10 +49,6 @@ class ProductDetailView(DetailView):
     template_name = 'products/detail.html'
     model = Product
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-
 
 class ProductCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'products/add.html'
@@ -60,8 +56,11 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     form_class = ProductForm
     permission_required = 'add_product'
 
+    def has_permission(self):
+        return self.request.user.groups.filter(name='Модераторы') or super().has_permission()
+
     def get_success_url(self):
-        return reverse('product-detail', kwargs={'pk': self.object.pk})
+        return reverse('shop:product-detail', kwargs={'pk': self.object.pk})
 
 
 class ProductUpdateView(PermissionRequiredMixin, UpdateView):
@@ -70,12 +69,18 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     form_class = ProductForm
     permission_required = 'change_product'
 
+    def has_permission(self):
+        return self.request.user.groups.filter(name='Модераторы') or super().has_permission()
+
     def get_success_url(self):
-        return reverse('product-detail', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('shop:product-detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
 class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'products/delete.html'
     model = Product
-    success_url = reverse_lazy('product-list')
+    success_url = reverse_lazy('shop:product-list')
     permission_required = 'delete_product'
+
+    def has_permission(self):
+        return self.request.user.groups.filter(name='Модераторы') or super().has_permission()

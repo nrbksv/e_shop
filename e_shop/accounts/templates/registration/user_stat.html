@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'partial/nav_bar.html' %}
+    <div class="card">
+      <div class="card-body">
+          <h4 class="text-center">Статистика полльзователя {{ user.username }}</h4>
+        <table class="table">
+            <tr>
+                <td>Время нахождения на сайте:</td>
+                <td>{{ user_obj.total_time }}</td>
+            </tr>
+            <tr>
+                <td>Количество переходов по стр:</td>
+                <td>{{ user_obj.page_count }}</td>
+            </tr>
+
+        </table>
+          <table class="table">
+              <hr>
+          <h5 class="text-center my-4">Подробнее</h5>
+            {% for page in user_obj.pages_info %}
+                {% for k, v in page.items %}
+                    <tr>
+                        <td>Страница: {{ k }}</td>
+                        <td>Время на странице: {{ v }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model, login
-from django.shortcuts import reverse, redirect
-from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from django.views.generic import CreateView, ListView
 
 from accounts.forms import RegisterForm
 
@@ -22,3 +23,11 @@ class UserRegisterView(CreateView):
         if not next_url:
             next_url = 'shop:product-list'
         return next_url
+
+
+class UserStatisticsView(LoginRequiredMixin, ListView):
+    template_name = 'registration/user_stat.html'
+    context_object_name = 'user_obj'
+
+    def get_queryset(self):
+        return self.request.session.get('user_stat', {})

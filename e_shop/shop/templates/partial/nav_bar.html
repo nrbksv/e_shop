@@ -15,19 +15,20 @@
               </form>
           </li>
         <li class="nav-item">
-          <a class="nav-link active m-link ml-5" aria-current="page" href="{% url 'shop:product-list' %}">Все товары</a>
+          <a class="nav-link active m-link ml-5" aria-current="page" href="{% url 'shop:product-list' %}"><i class="fas fa-clipboard-list">  Все товары</i></a>
         </li>
       {% if perms.shop.add_product %}
         <li class="nav-item">
-          <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'shop:product-add' %}">Добавить</a>
+          <a class="nav-link ml-3 active m-link" aria-current="page" href="{% url 'shop:product-add' %}"><i class="fas fa-plus">  Добавить</i></a>
         </li>
       {% endif %}
-      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:user-register' %}">Регистрация</a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:user-register' %}"><i class="fas fa-user-plus">  Регистрация</i></a></li>
       {% if user.is_authenticated %}
-      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выйти</a></li>
-      <li><a class="nav-link ml-3 active m-link" href="{% url 'shop:user-order' %}">Мои заказы</a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}"><i class="fas fa-sign-out-alt">  Выйти</i></a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'shop:user-order' %}"><i class="fas fa-history">  Мои заказы</i></a></li>
+      <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:user-statistics' %}"><i class="fas fa-chart-line"> Статистика</i></a></li>
       {% else %}
-          <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Войти</a></li>
+          <li><a class="nav-link ml-3 active m-link" href="{% url 'accounts:login' %}?next={{ request.get_full_path }}"><i class="fas fa-sign-in-alt">  Войти</i></a></li>
       {% endif %}
       </ul>
     </div>

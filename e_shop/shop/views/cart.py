@@ -41,6 +41,7 @@ class DeleteFromCart(View):
                 _cart[str(product.id)] -= 1
                 messages.add_message(request, messages.WARNING, f'"{product.product}" удален из корзины. Количество: 1шт')
             else:
+                messages.add_message(request, messages.WARNING, f'"{product.product}" удален из корзины.')
                 del _cart[str(product.id)]
             request.session['cart'] = _cart
 
@@ -100,6 +101,10 @@ class OrderView(View):
             OrderProduct.objects.create(products=product, quantity=qty, order=order)
             if product.balance - qty >= 0:
                 product.balance -= qty
+            else:
+                order.delete()
+                messages.add_message(request, messages.ERROR, f'Произошла ошибка! Количество "{product.product}" на складе {product.balance} шт.')
+                return redirect('shop:cart-products-list')
             product.save()
         _cart.clear()
         request.session['cart'] = _cart
