@@ -25,7 +25,7 @@
             <th class="align-middle t-link" scope="col">
                 {% if qty %}
                     <a class="btn btn-warning btn-sm" href="{% url 'shop:cart-products-list' %}">
-                        <i class="fas fa-shopping-cart"> : ({{ qty }})</i>
+                        <i class="fas fa-shopping-cart"> в корзине: <span class="badge rounded-pill bg-light text-dark">{{ qty }}</span></i>
                     </a>
                 {%  endif %}
             </th>
@@ -37,7 +37,13 @@
               <td class="pl-4"><a class="product-link" href="{% url 'shop:product-list' %}?product/category={{ product.category.id }}">{{ product.category }}</a></td>
               <td><a class="product-link" href="{% url 'shop:product-detail' product.id %}">{{ product.product | truncatechars_html:40  }}</a></td>
               <td>{{ product.price }}</td>
-                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:add-to-cart' product.id %}"><i class="fas fa-cart-plus">  в корзину</i></a></td>
+                <td>
+              <form action="{% url 'shop:add-to-cart' product.id %}" method="GET">
+                  <input type="number" name="qty" value="1" style="width: 50px">
+                  <button class="btn btn-warning btn-sm text-dark" name="prev" value="{{ request.get_full_path }}" type="submit"><i class="fas fa-cart-plus">  в корзину</i></button>
+              </form>
+                </td>
+{#                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:add-to-cart' product.id %}?prev={{ request.get_full_path }}"><i class="fas fa-cart-plus">  в корзину</i></a></td>#}
             </tr>
           {% empty %}
           <tr><td>Нет товаров</td></tr>

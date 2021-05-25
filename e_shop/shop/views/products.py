@@ -54,10 +54,7 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'products/add.html'
     model = Product
     form_class = ProductForm
-    permission_required = 'add_product'
-
-    def has_permission(self):
-        return self.request.user.groups.filter(name='Модераторы') or super().has_permission()
+    permission_required = 'shop.add_product'
 
     def get_success_url(self):
         return reverse('shop:product-detail', kwargs={'pk': self.object.pk})
@@ -67,10 +64,7 @@ class ProductUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'products/update.html'
     model = Product
     form_class = ProductForm
-    permission_required = 'change_product'
-
-    def has_permission(self):
-        return self.request.user.groups.filter(name='Модераторы') or super().has_permission()
+    permission_required = 'shop.change_product'
 
     def get_success_url(self):
         return reverse('shop:product-detail', kwargs={'pk': self.kwargs.get('pk')})
@@ -80,7 +74,5 @@ class ProductDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'products/delete.html'
     model = Product
     success_url = reverse_lazy('shop:product-list')
-    permission_required = 'delete_product'
+    permission_required = 'shop.delete_product'
 
-    def has_permission(self):
-        return self.request.user.groups.filter(name='Модераторы') or super().has_permission()

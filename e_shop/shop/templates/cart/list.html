@@ -19,7 +19,8 @@
               <td>{{ key.price }}</td>
                 <td>{{ value.0 }}</td>
                 <td>{{ value.1 }}</td>
-                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:cart-product-delete' key.id %}"><i class="fas fa-minus-square">  Удалить</i></a></td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:cart-product-delete' key.id 'False' %}"><i class="fas fa-minus"></i></a></td>
+                <td><a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:cart-product-delete' key.id 'True' %}"><i class="fas fa-trash-alt">  Удалить</i></a></td>
             </tr>
           {% empty %}
           <tr><td>Нет товаров</td></tr>

@@ -17,9 +17,9 @@ class UserStatMiddleware:
         if not user_stat.get('path_count'):
             user_stat['path_count'] = []
 
-        res=[]
+        res = []
         if request.path == '/accounts/statistics/':
-            each_page = user_stat.get('each_page',[])
+            each_page = user_stat.get('each_page', [])
             pages_time = [v for page in each_page for k, v in page.items()]
             pages_path = [k for page in each_page for k, v in page.items()]
 
@@ -32,7 +32,7 @@ class UserStatMiddleware:
                 time_ = timedelta(seconds=time_)
                 time_on_page.append(str(time_))
 
-            res = [{pages_path[i]: time_on_page[i]} for i in range(len(time_on_page)) ]
+            res = [{pages_path[i]: time_on_page[i]} for i in range(len(time_on_page))]
 
         total_time = time.time() - user_stat.get('time_start')
         user_stat['total_time'] = str(timedelta(seconds=total_time))

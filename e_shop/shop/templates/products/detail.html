@@ -27,7 +27,11 @@
             </tr>
         </table>
           <div class="text-right">
-                <a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:add-to-cart' product.id %}?next={{ request.get_full_path }}"><i class="fas fa-cart-plus">  в корзину</i></a>
+              <form action="{% url 'shop:add-to-cart' product.id %}" method="GET">
+                  <input type="number" name="qty" value="1">
+                  <button class="btn btn-warning btn-sm text-dark" name="prev" value="{{ request.get_full_path }}" type="submit"><i class="fas fa-cart-plus">  в корзину</i></button>
+              </form>
+{#                <a class="btn btn-warning btn-sm text-dark" href="{% url 'shop:add-to-cart' product.id %}?prev={{ request.path }}"><i class="fas fa-cart-plus">  в корзину</i></a>#}
           </div>
       </div>
         <div class="card-footer d-flex flex-row justify-content-end">

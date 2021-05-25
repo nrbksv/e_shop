@@ -10,32 +10,41 @@ from shop.forms import OrderForm
 
 class AddToCart(View):
     def get(self, request, pk):
-        product = get_object_or_404(Product, id=pk)
-        if not request.session.get('cart'):
-            request.session['cart'] = dict()
-        _cart = request.session.get('cart')
+        qty = int(request.GET.get('qty'))
+        if qty > 0:
+            product = get_object_or_404(Product, id=pk)
 
-        if _cart.get(str(product.id)) is None:
-            _cart[str(product.id)] = 1
-            messages.add_message(request, messages.SUCCESS, f' "{product.product}"  добавлен в корзину. Количество: 1шт')
-        else:
-            balance = product.balance - (_cart.get(str(product.id)) + 1)
+            if not request.session.get('cart'):
+                request.session['cart'] = dict()
+            _cart = request.session.get('cart')
+
+            if not _cart.get(str(product.id)):
+                _cart[str(product.id)] = 0
+            balance = product.balance - (_cart.get(str(product.id)) + qty)
             if balance >= 0:
-                _cart[str(product.id)] += 1
-                messages.add_message(request, messages.SUCCESS, f'"{product.product}"  добавлен в корзину. Количество: {_cart[str(product.id)]}шт')
+                _cart[str(product.id)] += qty
+                messages.add_message(request, messages.SUCCESS, f' "{product.product}"  добавлен в корзину. Количество: {qty}шт')
             else:
-                messages.add_message(request, messages.ERROR, f'Это был последний  "{product.product}"')
+                messages.add_message(request, messages.ERROR, f'Выбранное количество превышает осаток на складе "{product.product}"')
 
-        request.session['cart'] = _cart
-        return redirect('shop:product-list')
+            request.session['cart'] = _cart
+
+        redirect_url = 'shop:product-list'
+        if request.GET.get('prev'):
+            redirect_url = request.GET.get('prev')
+        return redirect(redirect_url)
 
 
 class DeleteFromCart(View):
 
-    def get(self, request, pk):
+    def get(self, request, pk, all_):
         product = get_object_or_404(Product, id=pk)
-
         _cart = request.session.get('cart')
+
+        if all_ == 'True':
+            messages.add_message(request, messages.WARNING, f'"{product.product}" удален из корзины.')
+            del _cart[str(product.id)]
+
         if _cart.get(str(product.id)):
             if _cart[str(product.id)] > 1:
                 _cart[str(product.id)] -= 1
@@ -43,10 +52,12 @@ class DeleteFromCart(View):
             else:
                 messages.add_message(request, messages.WARNING, f'"{product.product}" удален из корзины.')
                 del _cart[str(product.id)]
-            request.session['cart'] = _cart
+
+        request.session['cart'] = _cart
 
         if not _cart:
             return redirect('shop:product-list')
+
         return redirect('shop:cart-products-list')
 
 
