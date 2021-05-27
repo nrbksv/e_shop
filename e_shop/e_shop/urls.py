@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('shop.urls')),
     path('accounts/', include('accounts.urls')),
+    path('api/', include('api.urls')),
     path('', RedirectView.as_view(url=HOME_PAGE_URL))
 ]
